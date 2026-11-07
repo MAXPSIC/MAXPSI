@@ -1,441 +1,265 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mente Clara | Recursos terapéuticos</title>
+<meta name="theme-color" content="#fff8f0">
+<title>MaxPSI | Recursos terapéuticos</title>
 <style>
-:root {
-  --petroleo: #173d4a;
-  --verde: #397c75;
-  --salvia: #e9f0eb;
-  --crema: #f8f6f0;
-  --terracota: #bd795f;
-  --texto: #263c40;
-  --gris: #718080;
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Nunito:wght@600;700;800;900&display=swap');
+
+:root{
+  --navy:#102f4b; --navy2:#173f5d; --orange:#f47b20; --coral:#ef765e;
+  --sky:#74bfd0; --sky-light:#e3f2f5; --sage:#b9c96f; --sage-light:#f0f2dc;
+  --cream:#fff8f0; --paper:#fffdf9; --ink:#17324a; --muted:#687985;
+  --line:#e9e3db; --shadow:0 12px 34px rgba(16,47,75,.09);
 }
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  background: var(--crema);
-  color: var(--texto);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans',Arial,sans-serif}
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(255,253,249,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(16,47,75,.08)}
+.navwrap{max-width:1280px;margin:auto;padding:14px 28px;display:flex;align-items:center;gap:26px}
+.logo{display:flex;align-items:center;gap:11px;min-width:245px}
+.logo-mark{width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,var(--coral) 0 48%,var(--sky) 49%);display:grid;place-items:center;color:var(--navy);font-size:24px;font-weight:900;border:3px solid var(--navy);box-shadow:4px 4px 0 rgba(16,47,75,.1)}
+.logo-name{font:900 31px/1 'Nunito',sans-serif;letter-spacing:-1.5px;color:var(--navy)}
+.logo-name span{color:var(--orange)}
+.logo small{display:block;font-size:11px;font-weight:700;letter-spacing:.4px;margin-top:4px;color:var(--navy2)}
+.navlinks{display:flex;align-items:center;gap:7px;margin-left:auto}
+.navlinks a,.navlinks button{border:0;background:transparent;color:var(--navy);font-weight:700;font-size:13px;padding:11px 14px;border-radius:30px}
+.navlinks a:hover,.navlinks button:hover{background:#f7eee5}
+.navlinks .active{background:var(--navy);color:white}
+.nav-search{width:220px;position:relative}
+.nav-search input{width:100%;border:1px solid #e6d9cd;background:white;border-radius:30px;padding:12px 40px 12px 16px;font-size:13px;outline:none}
+.nav-search span{position:absolute;right:15px;top:9px;font-size:19px;color:var(--navy)}
+main{max-width:1280px;margin:auto;padding:0 28px 64px}
+.hero{position:relative;overflow:hidden;min-height:350px;margin:24px 0 24px;border-radius:28px;background:linear-gradient(105deg,#fff5e9 0%,#fffaf3 47%,#e5f3f5 100%);display:grid;grid-template-columns:1.05fr .95fr;align-items:center;padding:42px 52px;isolation:isolate}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;z-index:-1}
+.hero:before{width:260px;height:260px;background:rgba(116,191,208,.25);right:32%;top:-150px}
+.hero:after{width:210px;height:210px;background:rgba(244,123,32,.16);right:-55px;bottom:-115px}
+.hero-copy{max-width:560px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--navy2);font-weight:800;font-size:12px;letter-spacing:1.3px;text-transform:uppercase}
+.eyebrow:before{content:"";width:24px;height:3px;background:var(--orange);border-radius:3px}
+.hero h1{font:900 clamp(42px,5vw,68px)/.98 'Nunito',sans-serif;letter-spacing:-2.5px;color:var(--navy);margin:14px 0}
+.hero h1 span{color:var(--orange)}
+.hero-copy p{font-size:17px;line-height:1.6;color:#42596a;max-width:490px;margin:0 0 24px}
+.primary-btn{display:inline-flex;align-items:center;gap:12px;background:var(--navy);color:white;border:0;border-radius:30px;padding:14px 23px;font-weight:800;box-shadow:0 7px 16px rgba(16,47,75,.16);transition:.2s}
+.primary-btn:hover{transform:translateY(-2px);background:var(--navy2)}
+.hero-visual{height:265px;display:flex;align-items:center;justify-content:center;position:relative}
+.hero-photo{width:min(100%,490px);height:260px;object-fit:cover;border-radius:22px;box-shadow:var(--shadow);border:7px solid rgba(255,255,255,.8)}
+.hero-note{position:absolute;right:-5px;bottom:5px;background:var(--navy);color:white;padding:14px 18px;border-radius:15px;font:700 15px 'Nunito',sans-serif;max-width:190px;box-shadow:var(--shadow);transform:rotate(-2deg)}
+.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:13px;margin:22px 0 42px}
+.category{border:1px solid rgba(16,47,75,.07);border-radius:18px;min-height:125px;padding:17px 16px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 5px 15px rgba(16,47,75,.045);transition:.2s;cursor:pointer}
+.category:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.category .cat-icon{font-size:22px;color:var(--navy);font-weight:800}
+.category strong{font:800 15px/1.2 'Nunito',sans-serif;color:var(--navy)}
+.category .arrow{align-self:flex-end;color:var(--navy);font-size:18px}
+.c1{background:#dff0f4}.c2{background:#ffe4d8}.c3{background:#eff1dc}.c4{background:#dceef2}.c5{background:#ffe8c9}.c6{background:#edf0d9}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:0 0 17px}
+.section-head h2{font:900 30px 'Nunito',sans-serif;letter-spacing:-.7px;color:var(--navy);margin:0}
+.section-head p{color:var(--muted);font-size:13px;margin:5px 0 0}
+.text-link{font-size:13px;font-weight:800;color:var(--navy);border-bottom:2px solid var(--orange);padding-bottom:4px}
+.feature-strip{display:grid;grid-template-columns:repeat(3,1fr) 1fr;gap:15px;margin-bottom:42px}
+.activity-card{background:var(--paper);border:1px solid var(--line);border-radius:19px;overflow:hidden;box-shadow:0 5px 18px rgba(16,47,75,.055);display:flex;flex-direction:column;min-width:0;transition:.2s}
+.activity-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.activity-image{height:142px;width:100%;object-fit:cover;display:block}
+.activity-content{padding:15px 17px 16px;display:flex;flex-direction:column;flex:1}
+.tag{display:inline-flex;width:fit-content;background:var(--sky-light);color:var(--navy);font-size:11px;font-weight:800;padding:6px 10px;border-radius:30px}
+.activity-card h3{font:800 18px 'Nunito',sans-serif;color:var(--navy);margin:11px 0 5px}
+.activity-card p{font-size:13px;line-height:1.5;color:var(--muted);margin:0 0 14px}
+.meta{display:flex;gap:14px;flex-wrap:wrap;color:#657784;font-size:11px;font-weight:700;margin-top:auto}
+.meta span{display:flex;align-items:center;gap:5px}
+.promo{border-radius:19px;background:var(--sky-light);padding:23px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.promo:after{content:"";position:absolute;width:130px;height:130px;border:24px solid rgba(116,191,208,.25);border-radius:50%;right:-55px;top:-50px}
+.promo h3{font:900 22px/1.1 'Nunito',sans-serif;color:var(--navy);margin:0 0 12px;position:relative;z-index:1}
+.promo p{font-size:13px;line-height:1.5;color:#4f6674;margin:0 0 15px;position:relative;z-index:1}
+.promo a{font-size:12px;font-weight:800;color:var(--navy);position:relative;z-index:1}
+.library{background:#fffdf9;border:1px solid var(--line);border-radius:24px;padding:27px;box-shadow:0 8px 24px rgba(16,47,75,.045)}
+.library-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:17px}
+.library-top h2{font:900 26px 'Nunito',sans-serif;color:var(--navy);margin:0}
+.count{font-size:12px;color:var(--muted);font-weight:700}
+.search-panel{background:#f8f5ef;border-radius:16px;padding:16px;margin-bottom:22px}
+.search-main{position:relative}
+.search-main input{width:100%;border:1px solid #e3ddd3;border-radius:12px;background:white;padding:14px 16px;font-size:14px;outline:none}
+.search-main input:focus,.filters select:focus{border-color:var(--sky);box-shadow:0 0 0 3px rgba(116,191,208,.2)}
+.filters{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.filters label{display:block;font-size:11px;font-weight:800;color:#627480;margin:0 0 6px 2px}
+.filters select{width:100%;border:1px solid #e3ddd3;border-radius:10px;padding:11px;background:white;color:var(--ink);font-size:13px;outline:none}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.library-card{background:white;border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;min-height:220px;transition:.2s}
+.library-card:hover{border-color:#c5dfe5;box-shadow:0 8px 22px rgba(16,47,75,.07)}
+.library-card h3{font:800 18px 'Nunito',sans-serif;color:var(--navy);margin:13px 0 7px}
+.library-card p{font-size:13px;line-height:1.55;color:var(--muted);margin:0 0 14px}
+.library-card .meta{margin-bottom:14px}
+.actions{display:flex;gap:8px;margin-top:auto}
+.actions button,.dialog-buttons button{border:0;border-radius:10px;padding:10px 13px;font-size:12px;font-weight:800}
+.primary{background:var(--navy);color:white}
+.secondary{background:#e6f1f2;color:var(--navy)}
+.favorite{background:#fff2e8;color:#c45d36;min-width:40px}
+.actions button:hover,.dialog-buttons button:hover{filter:brightness(.97);transform:translateY(-1px)}
+.empty{grid-column:1/-1;text-align:center;padding:45px 20px;color:var(--muted);background:#f8f5ef;border-radius:14px}
+footer{margin-top:45px;padding:30px 20px;text-align:center;background:var(--navy);color:#e7eff2;font-size:12px;line-height:1.7}
+footer strong{font:900 20px 'Nunito',sans-serif;display:block;margin-bottom:7px;color:white}
+.overlay{position:fixed;inset:0;background:rgba(10,34,53,.68);display:none;align-items:center;justify-content:center;padding:16px;z-index:50}
+.dialog{background:#fffdf9;width:min(680px,100%);max-height:90vh;overflow-y:auto;border-radius:22px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,.22)}
+.dialog h2{font:900 27px 'Nunito',sans-serif;color:var(--navy);margin:12px 0}
+.dialog h4{color:#357f88;margin:18px 0 5px;font-size:13px}
+.dialog p,.dialog li{font-size:14px;line-height:1.65;color:#42596a}
+.dialog-buttons{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.participant{text-align:center;padding:30px 10px}
+.participant h2{font-size:clamp(28px,5vw,42px)}
+.participant p{font-size:clamp(20px,3vw,28px);line-height:1.4;color:var(--navy)}
+.participant .instruction{font-size:15px;color:var(--muted)}
+@media(max-width:1050px){
+ .navwrap{flex-wrap:wrap;gap:12px}.navlinks{order:3;width:100%;justify-content:center}.nav-search{margin-left:auto}
+ .categories{grid-template-columns:repeat(3,1fr)}.feature-strip{grid-template-columns:repeat(2,1fr)}
 }
-header {
-  background: var(--petroleo);
-  color: white;
-  padding: 24px 6%;
+@media(max-width:700px){
+ main{padding:0 15px 40px}.navwrap{padding:12px 15px}.logo{min-width:0}.logo-name{font-size:26px}
+ .nav-search{width:100%;order:2}.navlinks{overflow:auto;justify-content:flex-start}
+ .hero{grid-template-columns:1fr;padding:30px 24px;gap:20px}.hero-visual{height:200px}.hero-photo{height:195px}
+ .categories{grid-template-columns:repeat(2,1fr)}.feature-strip{grid-template-columns:1fr}
+ .cards{grid-template-columns:1fr}.filters{grid-template-columns:1fr}
+ .section-head{align-items:flex-start;flex-direction:column}.section-head h2{font-size:26px}
+ .library{padding:17px}.library-top{align-items:flex-start;flex-direction:column}
 }
-.brand {
-  font-size: 25px;
-  font-weight: 750;
-  letter-spacing: 1px;
-}
-.brand span { color: #a9d0c4; }
-header p { margin: 7px 0 0; color: #d4e1df; font-size: 14px; }
-nav {
-  background: white;
-  padding: 13px 6%;
-  display: flex;
-  gap: 24px;
-  border-bottom: 1px solid #e6e8e2;
-  color: var(--petroleo);
-  font-size: 13px;
-  font-weight: 600;
-}
-main { max-width: 1120px; margin: auto; padding: 35px 22px 60px; }
-.intro { margin-bottom: 28px; }
-h1 { color: var(--petroleo); font-size: 30px; margin: 0 0 9px; }
-.intro p { color: var(--gris); margin: 0; line-height: 1.6; }
-.searchbox {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 3px 15px #173d4a0c;
-  margin-bottom: 25px;
-}
-.searchbox input, select {
-  width: 100%;
-  padding: 13px;
-  border: 1px solid #dce4df;
-  border-radius: 9px;
-  background: #fff;
-  color: var(--texto);
-  font-size: 15px;
-}
-.filters {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-top: 13px;
-}
-label { font-size: 12px; color: var(--gris); display: block; margin-bottom: 6px; }
-.section-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 28px 0 15px;
-}
-.section-title h2 { font-size: 19px; color: var(--petroleo); margin: 0; }
-#count { font-size: 12px; color: var(--gris); }
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 17px;
-}
-.card {
-  background: white;
-  border: 1px solid #e9eae5;
-  border-radius: 13px;
-  padding: 19px;
-  display: flex;
-  flex-direction: column;
-  min-height: 225px;
-}
-.tag {
-  color: var(--verde);
-  background: var(--salvia);
-  border-radius: 30px;
-  padding: 5px 10px;
-  font-size: 11px;
-  display: inline-block;
-  width: fit-content;
-}
-.card h3 { color: var(--petroleo); margin: 13px 0 7px; font-size: 17px; }
-.card p { font-size: 13px; color: var(--gris); line-height: 1.5; margin: 0 0 15px; }
-.meta { font-size: 11px; color: var(--gris); margin-top: auto; margin-bottom: 13px; }
-.actions { display: flex; gap: 8px; }
-button {
-  border: 0;
-  cursor: pointer;
-  border-radius: 8px;
-  padding: 10px 13px;
-  font-size: 12px;
-  font-weight: 650;
-}
-.primary { background: var(--petroleo); color: white; }
-.secondary { background: var(--salvia); color: var(--petroleo); }
-.favorite { background: transparent; border: 1px solid #e1e5df; color: var(--terracota); }
-button:hover { opacity: .85; }
-.empty { padding: 35px; text-align: center; color: var(--gris); grid-column: 1/-1; }
-footer {
-  text-align: center;
-  padding: 25px;
-  background: white;
-  color: var(--gris);
-  font-size: 11px;
-  line-height: 1.6;
-}
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: #102d3acc;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-  z-index: 10;
-}
-.dialog {
-  background: white;
-  width: min(620px, 100%);
-  max-height: 90vh;
-  overflow-y: auto;
-  border-radius: 16px;
-  padding: 25px;
-}
-.dialog h2 { color: var(--petroleo); margin-top: 10px; }
-.dialog p, .dialog li { line-height: 1.6; font-size: 14px; }
-.dialog h4 { color: var(--verde); margin-bottom: 5px; }
-.dialog-buttons { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
-.participant {
-  text-align: center;
-  padding: 35px 15px;
-}
-.participant h2 { font-size: clamp(26px, 5vw, 42px); }
-.participant p { font-size: clamp(20px, 3vw, 29px); }
-.participant .instruction { font-size: 17px; color: var(--gris); }
-@media(max-width: 750px) {
-  .cards { grid-template-columns: repeat(2, 1fr); }
-  .filters { grid-template-columns: 1fr; }
-}
-@media(max-width: 480px) {
-  .cards { grid-template-columns: 1fr; }
-  nav { gap: 13px; flex-wrap: wrap; }
-}
-@media print {
-  header, nav, main, footer { display: none !important; }
-  .overlay { display: block !important; position: static; background: white; padding: 0; }
-  .dialog { max-height: none; overflow: visible; width: 100%; }
-  .dialog-buttons { display: none; }
+@media print{
+ body{background:white}.topbar,main,footer{display:none!important}.overlay{display:block!important;position:static;background:white;padding:0}
+ .dialog{width:100%;max-height:none;overflow:visible;box-shadow:none;padding:0}.dialog-buttons{display:none!important}
 }
 </style>
 </head>
 <body>
-
-<header>
-  <div class="brand">MENTE <span>CLARA</span></div>
-  <p>Biblioteca de recursos psicológicos y terapéuticos</p>
+<header class="topbar">
+ <div class="navwrap">
+  <a class="logo" href="#" aria-label="MaxPSI inicio">
+   <span class="logo-mark">M</span><span><span class="logo-name">Max<span>PSI</span></span><small>RECURSOS TERAPÉUTICOS</small></span>
+  </a>
+  <nav class="navlinks">
+   <a class="active" href="#">Inicio</a><a href="#biblioteca">Explorar</a><a href="#acerca">Acerca de</a>
+   <button id="favoritesNav" type="button">♡ Favoritos</button><a href="#ayuda">Ayuda</a>
+  </nav>
+  <div class="nav-search"><input id="quickSearch" type="search" placeholder="Buscar actividades..."><span>⌕</span></div>
+ </div>
 </header>
 
-<nav>
-  <span>Biblioteca</span>
-  <span>Actividades</span>
-  <span id="favoritesNav">Mis favoritos</span>
-</nav>
-
 <main>
-  <section class="intro">
-    <h1>Encontrá tu próximo recurso</h1>
-    <p>Actividades y herramientas para acompañar el trabajo con personas mayores.</p>
-  </section>
-
-  <section class="searchbox">
-    <input id="search" type="search" placeholder="Buscar por nombre, objetivo o palabra clave...">
-    <div class="filters">
-      <div>
-        <label for="area">Área cognitiva</label>
-        <select id="area">
-          <option value="">Todas las áreas</option>
-          <option>Memoria</option>
-          <option>Atención</option>
-          <option>Lenguaje</option>
-          <option>Funciones ejecutivas</option>
-          <option>Orientación</option>
-        </select>
-      </div>
-      <div>
-        <label for="difficulty">Dificultad</label>
-        <select id="difficulty">
-          <option value="">Todas</option>
-          <option>Inicial</option>
-          <option>Intermedia</option>
-          <option>Avanzada</option>
-        </select>
-      </div>
-      <div>
-        <label for="duration">Duración</label>
-        <select id="duration">
-          <option value="">Cualquier duración</option>
-          <option value="15">Hasta 15 minutos</option>
-          <option value="30">Hasta 30 minutos</option>
-        </select>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-title">
-    <h2 id="listTitle">Explorar actividades</h2>
-    <span id="count"></span>
+ <section class="hero">
+  <div class="hero-copy">
+   <span class="eyebrow">Recursos para el trabajo terapéutico</span>
+   <h1>Ideas que impulsan<br><span>el bienestar.</span></h1>
+   <p>Una biblioteca digital de actividades y herramientas para acompañar, estimular y trabajar distintas áreas en todas las etapas de la vida.</p>
+   <a class="primary-btn" href="#biblioteca">Explorar recursos <span>→</span></a>
   </div>
+  <div class="hero-visual">
+   <img class="hero-photo" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=85" alt="Materiales de trabajo y planificación sobre una mesa">
+   <div class="hero-note">Recursos que inspiran. Actividades que acompañan.</div>
+  </div>
+ </section>
 
+ <section class="categories" aria-label="Categorías">
+  <div class="category c1" data-area="Memoria"><span class="cat-icon">01</span><strong>Memoria<br>y atención</strong><span class="arrow">↗</span></div>
+  <div class="category c2" data-area="Lenguaje"><span class="cat-icon">02</span><strong>Lenguaje<br>y comunicación</strong><span class="arrow">↗</span></div>
+  <div class="category c3" data-area="Orientación"><span class="cat-icon">03</span><strong>Orientación</strong><span class="arrow">↗</span></div>
+  <div class="category c4" data-area="Atención"><span class="cat-icon">04</span><strong>Atención</strong><span class="arrow">↗</span></div>
+  <div class="category c5" data-area="Funciones ejecutivas"><span class="cat-icon">05</span><strong>Funciones<br>ejecutivas</strong><span class="arrow">↗</span></div>
+  <div class="category c6" data-area=""><span class="cat-icon">06</span><strong>Actividades<br>grupales</strong><span class="arrow">↗</span></div>
+ </section>
+
+ <section class="feature-strip" aria-label="Actividades destacadas">
+  <article class="activity-card">
+   <img class="activity-image" src="https://images.unsplash.com/photo-1455390582262-044c1227a932?auto=format&fit=crop&w=800&q=80" alt="Cuaderno y lapicera">
+   <div class="activity-content"><span class="tag">Memoria</span><h3>Recuerdos de una época</h3><p>Una propuesta para favorecer la evocación autobiográfica y la conversación.</p><div class="meta"><span>◷ 15 min</span><span>• Inicial</span></div></div>
+  </article>
+  <article class="activity-card">
+   <img class="activity-image" src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=800&q=80" alt="Piezas de construcción de colores">
+   <div class="activity-content"><span class="tag">Atención</span><h3>Detectives de diferencias</h3><p>Una actividad visual para trabajar la atención selectiva y la exploración.</p><div class="meta"><span>◷ 15 min</span><span>• Intermedia</span></div></div>
+  </article>
+  <article class="activity-card">
+   <img class="activity-image" src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=800&q=80" alt="Planificación y organización">
+   <div class="activity-content"><span class="tag">Funciones ejecutivas</span><h3>Planificar una salida</h3><p>Organización, anticipación y resolución de situaciones cotidianas.</p><div class="meta"><span>◷ 30 min</span><span>• Avanzada</span></div></div>
+  </article>
+  <aside class="promo" id="acerca"><h3>Tu aliado en el trabajo terapéutico.</h3><p>Recursos prácticos, adaptables y organizados para facilitar la planificación de actividades.</p><a href="#biblioteca">Conocé la biblioteca →</a></aside>
+ </section>
+
+ <section class="library" id="biblioteca">
+  <div class="library-top"><div><span class="eyebrow">Biblioteca digital</span><h2>Explorá las actividades</h2></div><span class="count" id="count"></span></div>
+  <div class="search-panel">
+   <div class="search-main"><input id="search" type="search" placeholder="Buscá por nombre, objetivo o palabra clave..."></div>
+   <div class="filters">
+    <div><label for="area">ÁREA DE TRABAJO</label><select id="area"><option value="">Todas las áreas</option><option>Memoria</option><option>Atención</option><option>Lenguaje</option><option>Funciones ejecutivas</option><option>Orientación</option></select></div>
+    <div><label for="difficulty">NIVEL DE DIFICULTAD</label><select id="difficulty"><option value="">Todos los niveles</option><option>Inicial</option><option>Intermedia</option><option>Avanzada</option></select></div>
+    <div><label for="duration">DURACIÓN</label><select id="duration"><option value="">Cualquier duración</option><option value="15">Hasta 15 minutos</option><option value="30">Hasta 30 minutos</option></select></div>
+   </div>
+  </div>
+  <div class="section-head"><div><h2 id="listTitle">Todos los recursos</h2><p>Seleccioná una actividad para consultar su ficha completa.</p></div><a class="text-link" href="#biblioteca" id="clearFilters">Limpiar filtros</a></div>
   <section class="cards" id="cards"></section>
+ </section>
 </main>
 
-<footer>
-  Mente Clara · Recursos para profesionales<br>
-  Material orientativo: las actividades requieren adaptación y criterio profesional.
-  No constituyen pruebas diagnósticas ni reemplazan una evaluación.
-</footer>
+<footer id="ayuda"><strong>MaxPSI · Recursos terapéuticos</strong>Material orientativo para profesionales. Las actividades requieren adaptación y criterio profesional.<br>No constituyen pruebas diagnósticas ni reemplazan una evaluación.</footer>
 
-<div class="overlay" id="overlay">
-  <div class="dialog" id="dialog"></div>
-</div>
+<div class="overlay" id="overlay"><div class="dialog" id="dialog"></div></div>
 
 <script>
 const activities = [
-  {
-    id: 1,
-    name: "Recuerdos de una época",
-    area: "Memoria",
-    difficulty: "Inicial",
-    duration: 15,
-    objective: "Favorecer la evocación autobiográfica y la comunicación.",
-    materials: "Fotografías o imágenes de distintas épocas.",
-    instruction: "Elegí una imagen y contá qué recuerdos, lugares o experiencias te despierta.",
-    steps: ["Presentar algunas imágenes variadas.", "Invitar a elegir una.", "Facilitar el relato mediante preguntas abiertas.", "Respetar si la persona prefiere no compartir algún recuerdo."],
-    adaptation: "Se puede realizar oralmente, sin necesidad de leer ni escribir. Evitar presionar para recuperar recuerdos."
-  },
-  {
-    id: 2,
-    name: "Palabras relacionadas",
-    area: "Lenguaje",
-    difficulty: "Inicial",
-    duration: 15,
-    objective: "Estimular la fluidez verbal y la asociación semántica.",
-    materials: "Ninguno.",
-    instruction: "Decí todas las palabras que se te ocurran relacionadas con la cocina.",
-    steps: ["Proponer una categoría conocida.", "Dar tiempo para responder.", "Invitar a ampliar las respuestas con ejemplos.", "Cambiar de categoría si resulta adecuado."],
-    adaptation: "Ofrecer pistas o imágenes si es necesario. Se pueden elegir categorías vinculadas con los intereses de la persona."
-  },
-  {
-    id: 3,
-    name: "Detectives de diferencias",
-    area: "Atención",
-    difficulty: "Intermedia",
-    duration: 15,
-    objective: "Favorecer la atención selectiva y la exploración visual.",
-    materials: "Dos imágenes similares con diferencias.",
-    instruction: "Observá las dos imágenes y encontrá qué elementos cambiaron.",
-    steps: ["Presentar ambas imágenes.", "Permitir una observación inicial.", "Invitar a señalar las diferencias.", "Acompañar sin apurar."],
-    adaptation: "Utilizar imágenes grandes, buen contraste y pocas diferencias. Considerar dificultades visuales."
-  },
-  {
-    id: 4,
-    name: "Ordenar una rutina",
-    area: "Funciones ejecutivas",
-    difficulty: "Intermedia",
-    duration: 20,
-    objective: "Trabajar secuenciación y organización de acciones cotidianas.",
-    materials: "Tarjetas con acciones de una actividad cotidiana.",
-    instruction: "Ordená las acciones para mostrar cómo prepararías una merienda.",
-    steps: ["Presentar entre tres y cinco tarjetas.", "Invitar a ordenarlas.", "Conversar sobre la secuencia elegida.", "Explorar otras maneras posibles de organizarla."],
-    adaptation: "Reducir la cantidad de tarjetas o realizar la secuencia oralmente. No exigir una única respuesta si existen distintas alternativas válidas."
-  },
-  {
-    id: 5,
-    name: "Calendario conversado",
-    area: "Orientación",
-    difficulty: "Inicial",
-    duration: 10,
-    objective: "Promover referencias temporales mediante una conversación contextualizada.",
-    materials: "Calendario visible.",
-    instruction: "Con ayuda del calendario, conversemos sobre el día, el mes y las actividades próximas.",
-    steps: ["Observar el calendario.", "Identificar la fecha actual.", "Conversar sobre actividades cercanas.", "Relacionar la información con la rutina habitual."],
-    adaptation: "Usar letra grande y referencias significativas. Evitar convertir la actividad en un interrogatorio."
-  },
-  {
-    id: 6,
-    name: "Categorías cotidianas",
-    area: "Lenguaje",
-    difficulty: "Intermedia",
-    duration: 20,
-    objective: "Estimular categorización y organización semántica.",
-    materials: "Imágenes de objetos cotidianos.",
-    instruction: "Agrupá estos objetos según las características que tengan en común.",
-    steps: ["Presentar imágenes variadas.", "Invitar a formar grupos.", "Preguntar por qué eligió esa clasificación.", "Proponer una nueva forma de agrupar."],
-    adaptation: "Utilizar objetos conocidos y pocas imágenes. Aceptar distintas clasificaciones razonables."
-  },
-  {
-    id: 7,
-    name: "Escucha y respuesta",
-    area: "Atención",
-    difficulty: "Inicial",
-    duration: 10,
-    objective: "Favorecer la atención auditiva y la comprensión de consignas.",
-    materials: "Ninguno.",
-    instruction: "Escuchá una breve historia y después conversemos sobre lo que sucedió.",
-    steps: ["Contar una historia breve.", "Dejar un momento para procesar.", "Realizar preguntas abiertas.", "Retomar los aspectos principales."],
-    adaptation: "Hablar claramente, reducir distractores y comprobar que la persona escuche bien."
-  },
-  {
-    id: 8,
-    name: "Planificar una salida",
-    area: "Funciones ejecutivas",
-    difficulty: "Avanzada",
-    duration: 30,
-    objective: "Estimular planificación, anticipación y resolución de situaciones cotidianas.",
-    materials: "Papel y lápiz opcionales.",
-    instruction: "Imaginemos que organizamos una salida: ¿qué tendríamos que preparar y tener en cuenta?",
-    steps: ["Elegir un destino.", "Pensar qué se necesita llevar.", "Considerar horarios y transporte.", "Conversar sobre posibles imprevistos."],
-    adaptation: "Simplificar la planificación y ofrecer opciones. Tener en cuenta las experiencias e intereses personales."
-  }
+ {id:1,name:"Recuerdos de una época",area:"Memoria",difficulty:"Inicial",duration:15,objective:"Favorecer la evocación autobiográfica y la comunicación.",materials:"Fotografías o imágenes de distintas épocas.",instruction:"Elegí una imagen y contá qué recuerdos, lugares o experiencias te despierta.",steps:["Presentar algunas imágenes variadas.","Invitar a elegir una.","Facilitar el relato mediante preguntas abiertas.","Respetar si la persona prefiere no compartir algún recuerdo."],adaptation:"Se puede realizar oralmente, sin necesidad de leer ni escribir. Evitar presionar para recuperar recuerdos."},
+ {id:2,name:"Palabras relacionadas",area:"Lenguaje",difficulty:"Inicial",duration:15,objective:"Estimular la fluidez verbal y la asociación semántica.",materials:"Ninguno.",instruction:"Decí todas las palabras que se te ocurran relacionadas con la cocina.",steps:["Proponer una categoría conocida.","Dar tiempo para responder.","Invitar a ampliar las respuestas con ejemplos.","Cambiar de categoría si resulta adecuado."],adaptation:"Ofrecer pistas o imágenes si es necesario. Se pueden elegir categorías vinculadas con los intereses de la persona."},
+ {id:3,name:"Detectives de diferencias",area:"Atención",difficulty:"Intermedia",duration:15,objective:"Favorecer la atención selectiva y la exploración visual.",materials:"Dos imágenes similares con diferencias.",instruction:"Observá las dos imágenes y encontrá qué elementos cambiaron.",steps:["Presentar ambas imágenes.","Permitir una observación inicial.","Invitar a señalar las diferencias.","Acompañar sin apurar."],adaptation:"Utilizar imágenes grandes, buen contraste y pocas diferencias. Considerar dificultades visuales."},
+ {id:4,name:"Ordenar una rutina",area:"Funciones ejecutivas",difficulty:"Intermedia",duration:20,objective:"Trabajar secuenciación y organización de acciones cotidianas.",materials:"Tarjetas con acciones de una actividad cotidiana.",instruction:"Ordená las acciones para mostrar cómo prepararías una merienda.",steps:["Presentar entre tres y cinco tarjetas.","Invitar a ordenarlas.","Conversar sobre la secuencia elegida.","Explorar otras maneras posibles de organizarla."],adaptation:"Reducir la cantidad de tarjetas o realizar la secuencia oralmente. No exigir una única respuesta si existen distintas alternativas válidas."},
+ {id:5,name:"Calendario conversado",area:"Orientación",difficulty:"Inicial",duration:10,objective:"Promover referencias temporales mediante una conversación contextualizada.",materials:"Calendario visible.",instruction:"Con ayuda del calendario, conversemos sobre el día, el mes y las actividades próximas.",steps:["Observar el calendario.","Identificar la fecha actual.","Conversar sobre actividades cercanas.","Relacionar la información con la rutina habitual."],adaptation:"Usar letra grande y referencias significativas. Evitar convertir la actividad en un interrogatorio."},
+ {id:6,name:"Categorías cotidianas",area:"Lenguaje",difficulty:"Intermedia",duration:20,objective:"Estimular categorización y organización semántica.",materials:"Imágenes de objetos cotidianos.",instruction:"Agrupá estos objetos según las características que tengan en común.",steps:["Presentar imágenes variadas.","Invitar a formar grupos.","Preguntar por qué eligió esa clasificación.","Proponer una nueva forma de agrupar."],adaptation:"Utilizar objetos conocidos y pocas imágenes. Aceptar distintas clasificaciones razonables."},
+ {id:7,name:"Escucha y respuesta",area:"Atención",difficulty:"Inicial",duration:10,objective:"Favorecer la atención auditiva y la comprensión de consignas.",materials:"Ninguno.",instruction:"Escuchá una breve historia y después conversemos sobre lo que sucedió.",steps:["Contar una historia breve.","Dejar un momento para procesar.","Realizar preguntas abiertas.","Retomar los aspectos principales."],adaptation:"Hablar claramente, reducir distractores y comprobar que la persona escuche bien."},
+ {id:8,name:"Planificar una salida",area:"Funciones ejecutivas",difficulty:"Avanzada",duration:30,objective:"Estimular planificación, anticipación y resolución de situaciones cotidianas.",materials:"Papel y lápiz opcionales.",instruction:"Imaginemos que organizamos una salida: ¿qué tendríamos que preparar y tener en cuenta?",steps:["Elegir un destino.","Pensar qué se necesita llevar.","Considerar horarios y transporte.","Conversar sobre posibles imprevistos."],adaptation:"Simplificar la planificación y ofrecer opciones. Tener en cuenta las experiencias e intereses personales."}
 ];
+const $=id=>document.getElementById(id);
+let favorites=JSON.parse(localStorage.getItem("maxpsic_favorites")||"[]");
+let showingFavorites=false;
 
-const $ = id => document.getElementById(id);
-let favorites = JSON.parse(localStorage.getItem("maxpsic_favorites") || "[]");
-let showingFavorites = false;
-
-function render() {
-  const query = $("search").value.toLowerCase().trim();
-  const area = $("area").value;
-  const difficulty = $("difficulty").value;
-  const duration = $("duration").value;
-
-  const filtered = activities.filter(a => {
-    const text = (a.name + " " + a.objective + " " + a.area).toLowerCase();
-    return (!query || text.includes(query)) &&
-      (!area || a.area === area) &&
-      (!difficulty || a.difficulty === difficulty) &&
-      (!duration || a.duration <= Number(duration)) &&
-      (!showingFavorites || favorites.includes(a.id));
-  });
-
-  $("listTitle").textContent = showingFavorites ? "Mis actividades favoritas" : "Explorar actividades";
-  $("count").textContent = filtered.length + " actividades";
-
-  $("cards").innerHTML = filtered.length ? filtered.map(a => `
-    <article class="card">
-      <span class="tag">${a.area}</span>
-      <h3>${a.name}</h3>
-      <p>${a.objective}</p>
-      <div class="meta">${a.difficulty} · ${a.duration} minutos</div>
-      <div class="actions">
-        <button class="primary" onclick="openActivity(${a.id})">Ver actividad</button>
-        <button class="favorite" onclick="toggleFavorite(${a.id})">${favorites.includes(a.id) ? "♥" : "♡"}</button>
-      </div>
-    </article>
-  `).join("") : '<div class="empty">No encontramos actividades con esos criterios.</div>';
+function render(){
+ const query=$("search").value.toLowerCase().trim();
+ const area=$("area").value, difficulty=$("difficulty").value, duration=$("duration").value;
+ const filtered=activities.filter(a=>{
+  const text=(a.name+" "+a.objective+" "+a.area+" "+a.materials).toLowerCase();
+  return (!query||text.includes(query))&&(!area||a.area===area)&&(!difficulty||a.difficulty===difficulty)&&(!duration||a.duration<=Number(duration))&&(!showingFavorites||favorites.includes(a.id));
+ });
+ $("listTitle").textContent=showingFavorites?"Mis actividades favoritas":"Todos los recursos";
+ $("count").textContent=filtered.length+" actividades";
+ $("cards").innerHTML=filtered.length?filtered.map(a=>`
+  <article class="library-card">
+   <span class="tag">${a.area}</span><h3>${a.name}</h3><p>${a.objective}</p>
+   <div class="meta"><span>◷ ${a.duration} min</span><span>• ${a.difficulty}</span></div>
+   <div class="actions"><button class="primary" onclick="openActivity(${a.id})">Ver ficha completa →</button><button class="favorite" aria-label="Agregar a favoritos" onclick="toggleFavorite(${a.id})">${favorites.includes(a.id)?"♥":"♡"}</button></div>
+  </article>`).join(""):'<div class="empty">No encontramos actividades con esos criterios. Probá modificar la búsqueda o los filtros.</div>';
+ $("favoritesNav").textContent=showingFavorites?"♡ Ver todas":"♡ Favoritos";
 }
-
-function toggleFavorite(id) {
-  favorites = favorites.includes(id) ? favorites.filter(x => x !== id) : [...favorites, id];
-  localStorage.setItem("maxpsic_favorites", JSON.stringify(favorites));
-  render();
+function toggleFavorite(id){favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];localStorage.setItem("maxpsic_favorites",JSON.stringify(favorites));render();}
+function openActivity(id){
+ const a=activities.find(x=>x.id===id);
+ $("dialog").innerHTML=`<span class="tag">${a.area} · ${a.difficulty} · ${a.duration} minutos</span><h2>${a.name}</h2>
+ <h4>Objetivo</h4><p>${a.objective}</p><h4>Materiales</h4><p>${a.materials}</p><h4>Consigna</h4><p>${a.instruction}</p>
+ <h4>Desarrollo</h4><ol>${a.steps.map(s=>`<li>${s}</li>`).join("")}</ol><h4>Adaptaciones</h4><p>${a.adaptation}</p>
+ <div class="dialog-buttons"><button class="primary" onclick="participantMode(${a.id})">Modo participante</button><button class="secondary" onclick="window.print()">Imprimir ficha</button><button class="favorite" onclick="closeDialog()">Cerrar</button></div>`;
+ $("overlay").style.display="flex";
 }
-
-function openActivity(id) {
-  const a = activities.find(x => x.id === id);
-  $("dialog").innerHTML = `
-    <span class="tag">${a.area} · ${a.difficulty}</span>
-    <h2>${a.name}</h2>
-    <h4>Objetivo</h4><p>${a.objective}</p>
-    <h4>Materiales</h4><p>${a.materials}</p>
-    <h4>Consigna</h4><p>${a.instruction}</p>
-    <h4>Desarrollo</h4><ol>${a.steps.map(s => `<li>${s}</li>`).join("")}</ol>
-    <h4>Adaptaciones</h4><p>${a.adaptation}</p>
-    <div class="dialog-buttons">
-      <button class="primary" onclick="participantMode(${a.id})">Modo participante</button>
-      <button class="secondary" onclick="window.print()">Imprimir ficha</button>
-      <button class="favorite" onclick="closeDialog()">Cerrar</button>
-    </div>`;
-  $("overlay").style.display = "flex";
+function participantMode(id){
+ const a=activities.find(x=>x.id===id);
+ $("dialog").innerHTML=`<div class="participant"><span class="tag">Actividad</span><h2>${a.name}</h2><p>${a.instruction}</p><div class="instruction">Tomate tu tiempo. Podemos hacerlo juntos.</div></div>
+ <div class="dialog-buttons"><button class="primary" onclick="openActivity(${a.id})">Volver a la ficha</button><button class="secondary" onclick="closeDialog()">Finalizar</button></div>`;
 }
-
-function participantMode(id) {
-  const a = activities.find(x => x.id === id);
-  $("dialog").innerHTML = `
-    <div class="participant">
-      <span class="tag">Actividad</span>
-      <h2>${a.name}</h2>
-      <p>${a.instruction}</p>
-      <div class="instruction">Tomate tu tiempo. Podemos hacerlo juntos.</div>
-    </div>
-    <div class="dialog-buttons">
-      <button class="primary" onclick="openActivity(${a.id})">Volver a la ficha</button>
-      <button class="secondary" onclick="closeDialog()">Finalizar</button>
-    </div>`;
-}
-
-function closeDialog() {
-  $("overlay").style.display = "none";
-}
-
-$("search").addEventListener("input", render);
-$("area").addEventListener("change", render);
-$("difficulty").addEventListener("change", render);
-$("duration").addEventListener("change", render);
-
-$("favoritesNav").addEventListener("click", () => {
-  showingFavorites = !showingFavorites;
-  render();
-});
-
-$("overlay").addEventListener("click", e => {
-  if (e.target === $("overlay")) closeDialog();
-});
-
+function closeDialog(){$("overlay").style.display="none";}
+$("search").addEventListener("input",render);
+$("area").addEventListener("change",render);
+$("difficulty").addEventListener("change",render);
+$("duration").addEventListener("change",render);
+$("quickSearch").addEventListener("input",e=>{$("search").value=e.target.value;render();document.getElementById("biblioteca").scrollIntoView({behavior:"smooth",block:"start"});});
+$("favoritesNav").addEventListener("click",()=>{showingFavorites=!showingFavorites;render();$("biblioteca").scrollIntoView({behavior:"smooth"});});
+$("clearFilters").addEventListener("click",()=>{$("search").value="";$("quickSearch").value="";$("area").value="";$("difficulty").value="";$("duration").value="";showingFavorites=false;render();});
+document.querySelectorAll(".category").forEach(c=>c.addEventListener("click",()=>{$("area").value=c.dataset.area;$("search").value="";showingFavorites=false;render();$("biblioteca").scrollIntoView({behavior:"smooth"});}));
+$("overlay").addEventListener("click",e=>{if(e.target===$("overlay"))closeDialog();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDialog();});
 render();
 </script>
 </body>
