@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -112,6 +111,8 @@ footer strong{font:900 20px 'Nunito',sans-serif;display:block;margin-bottom:7px;
 .dialog h4{color:#357f88;margin:18px 0 5px;font-size:13px}
 .dialog p,.dialog li{font-size:14px;line-height:1.65;color:#42596a}
 .dialog-buttons{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.dialog-buttons a.material-download{display:inline-flex;align-items:center;justify-content:center;border-radius:10px;padding:10px 13px;font-size:12px;font-weight:800;text-decoration:none;background:#e6f2f5;color:#173653;cursor:pointer}
+.dialog-buttons a.material-download:hover{filter:brightness(.96)}
 .participant{text-align:center;padding:30px 10px}
 .participant h2{font-size:clamp(28px,5vw,42px)}
 .participant p{font-size:clamp(20px,3vw,28px);line-height:1.4;color:var(--navy)}
@@ -252,8 +253,14 @@ function openActivity(id){
   <h4>Área y procesos involucrados</h4><p>${a.processes}</p><h4>Objetivo</h4><p>${a.objective}</p><h4>Materiales</h4><p>${a.materials}</p><h4>Consigna para el participante</h4><p>${a.instruction}</p>
   <h4>Desarrollo</h4><ol>${a.steps.map(s=>`<li>${s}</li>`).join("")}</ol><h4>Adaptaciones orientativas</h4><p>${a.adaptation}</p>
   <p style="font-size:12px;color:#687985">La dificultad es graduable y debe ajustarse considerando escolaridad, familiaridad con los estímulos, visión, audición, fatiga e intereses. La actividad no constituye una prueba diagnóstica.</p>
-  <div class="dialog-buttons"><button class="primary" onclick="participantMode(${a.id})">Modo participante</button><button class="secondary" onclick="window.print()">Imprimir ficha</button><button class="favorite" onclick="closeDialog()">Cerrar</button></div>`;
+  <div class="dialog-buttons"><button class="primary" onclick="participantMode(${a.id})">Modo participante</button><a class="secondary material-download" href="assets/actividad-${String(a.id).padStart(2,"0")}.png" download="MaxPSI-actividad-${String(a.id).padStart(2,"0")}.png">Descargar imagen PNG</a><button class="secondary" onclick="printMaterial(${a.id})">Imprimir material A4</button><button class="favorite" onclick="closeDialog()">Cerrar</button></div>`;
  $("overlay").style.display="flex";
+}
+function printMaterial(id){
+ // Página independiente: imprime solamente la lámina, no el sitio ni la ventana modal.
+ const page = `imprimir.html?id=${encodeURIComponent(id)}`;
+ const win = window.open(page, "_blank");
+ if(!win) window.location.href = page;
 }
 function participantMode(id){
  const a=activities.find(x=>x.id===id);
