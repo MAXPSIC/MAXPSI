@@ -134,78 +134,159 @@ footer strong{font:900 20px 'Nunito',sans-serif;display:block;margin-bottom:7px;
  body{background:white}.topbar,main,footer{display:none!important}.overlay{display:block!important;position:static;background:white;padding:0}
  .dialog{width:100%;max-height:none;overflow:visible;box-shadow:none;padding:0}.dialog-buttons{display:none!important}
 }
+
+/* Nueva arquitectura de colecciones MaxPSI */
+.hero-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.outline-btn{display:inline-flex;align-items:center;border:1px solid #c9d7dc;color:var(--navy);background:rgba(255,255,255,.72);border-radius:30px;padding:13px 19px;font-weight:800;font-size:13px}
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px;margin:26px 0 52px}
+.intro-card{position:relative;overflow:hidden;min-height:225px;border-radius:22px;padding:27px 30px;display:flex;flex-direction:column;align-items:flex-start;box-shadow:0 7px 20px rgba(16,47,75,.05);transition:.2s}
+.intro-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.intro-cognitive{background:linear-gradient(125deg,#e1f1f4,#f3f7ef)}.intro-tools{background:linear-gradient(125deg,#fff0e5,#f8e8e2)}
+.intro-kicker{font-size:11px;font-weight:900;letter-spacing:1.2px;color:#58707e}
+.intro-icon{position:absolute;right:27px;top:19px;font-size:46px;color:rgba(16,47,75,.2)}
+.intro-card h2{font:900 27px 'Nunito',sans-serif;color:var(--navy);margin:22px 0 7px}
+.intro-card p{font-size:14px;line-height:1.55;color:#506675;max-width:440px;margin:0 0 18px}
+.intro-card strong{font-size:13px;color:var(--navy);margin-top:auto}.intro-card strong span{color:var(--orange);font-size:18px;margin-left:6px}
+.collection-section{margin:0 0 54px;scroll-margin-top:105px}
+.section-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:19px}
+.section-heading h2{font:900 32px 'Nunito',sans-serif;letter-spacing:-.7px;color:var(--navy);margin:8px 0 4px}
+.section-heading p{font-size:14px;color:var(--muted);margin:0}
+.section-count{font-size:12px;font-weight:800;color:#607786;background:#edf3f3;border-radius:30px;padding:9px 13px;white-space:nowrap}
+.collection-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.collection-card{background:var(--paper);border:1px solid var(--line);border-radius:19px;overflow:hidden;box-shadow:0 5px 18px rgba(16,47,75,.045);display:flex;flex-direction:column;min-width:0;transition:.2s}
+.collection-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.collection-art{height:142px;padding:18px 20px;position:relative;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;color:var(--navy)}
+.collection-art:after{content:"";position:absolute;width:170px;height:170px;border:25px solid rgba(255,255,255,.28);border-radius:50%;right:-42px;top:-72px}
+.collection-art span{font-size:12px;font-weight:900;letter-spacing:1px;position:relative;z-index:1}
+.collection-art b{font:900 23px 'Nunito',sans-serif;letter-spacing:.4px;position:relative;z-index:1;max-width:78%}
+.collection-art i{position:absolute;right:24px;bottom:9px;font-style:normal;font-size:56px;font-weight:400;color:rgba(16,47,75,.35)}
+.art-memory{background:linear-gradient(120deg,#dceff3,#b9dce3)}.art-attention{background:linear-gradient(120deg,#ffe5d5,#f6c6ad)}.art-language{background:linear-gradient(120deg,#e8e9f8,#c9cbed)}.art-orientation{background:linear-gradient(120deg,#eff0dc,#d9dfb1)}.art-executive{background:linear-gradient(120deg,#fbe8c9,#f3d19d)}
+.therapy-art{height:116px}.therapy-art b{font-size:20px}.art-thought{background:linear-gradient(120deg,#dcecf0,#bcd9e1)}.art-emotion{background:linear-gradient(120deg,#ffe3d8,#f2c0b2)}.art-anxiety{background:linear-gradient(120deg,#e7e8f7,#c9c9eb)}.art-activation{background:linear-gradient(120deg,#e8efd8,#cbdba9)}.art-exposure{background:linear-gradient(120deg,#fbe7ca,#f1cf9d)}.art-beliefs{background:linear-gradient(120deg,#e4edf1,#c5d9e0)}.art-selfesteem{background:linear-gradient(120deg,#f7e5ec,#e9c6d5)}.art-coping{background:linear-gradient(120deg,#e7eadb,#cfd7b5)}
+.collection-info{padding:17px 19px 19px;display:flex;flex-direction:column;flex:1;align-items:flex-start}
+.status{display:inline-flex;border-radius:30px;padding:6px 10px;font-size:10px;font-weight:900;letter-spacing:.25px}
+.status-live{background:#e4f1e8;color:#32694b}.status-soon{background:#f2eee5;color:#85704c}
+.collection-info h3{font:900 19px/1.2 'Nunito',sans-serif;color:var(--navy);margin:12px 0 7px}
+.collection-info p{font-size:13px;line-height:1.55;color:var(--muted);margin:0 0 13px;min-height:60px}
+.collection-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;margin-bottom:15px}
+.collection-meta span{font-size:10px;font-weight:800;color:#5e7480;background:#f1f4f2;padding:6px 9px;border-radius:30px}
+.collection-button{width:100%;border:0;border-radius:11px;background:var(--navy);color:#fff;padding:12px 14px;font-size:12px;font-weight:900;text-align:left;display:flex;justify-content:space-between;align-items:center}
+.collection-button span{font-size:18px}.collection-button:hover{background:var(--navy2)}.muted-button{background:#eef0ed;color:#7a8584;cursor:default}.muted-button:hover{background:#eef0ed}
+.therapy-section{padding-top:8px}.therapy-note{display:flex;align-items:center;gap:15px;padding:17px 20px;background:#fff5ed;border:1px solid #f1dfd2;border-radius:16px;margin:0 0 18px}.therapy-note-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;background:#f8dfd1;color:#a85c3e;font-size:23px;flex:none}.therapy-note strong{font:800 15px 'Nunito',sans-serif;color:var(--navy)}.therapy-note p{margin:4px 0 0;font-size:12px;line-height:1.5;color:#627480}
+.collection-panel{background:#fffdf9;border:1px solid var(--line);border-radius:23px;padding:27px;margin:0 0 45px;scroll-margin-top:105px;box-shadow:0 8px 24px rgba(16,47,75,.045)}
+.panel-heading{margin-bottom:19px}.back-button{display:block;border:0;background:transparent;color:var(--navy);font-size:12px;font-weight:900;padding:0;margin-bottom:22px}.panel-heading h2{font:900 30px 'Nunito',sans-serif;color:var(--navy);margin:9px 0 4px}.panel-heading p{font-size:13px;color:var(--muted);margin:0}
+.panel-toolbar{display:flex;align-items:center;justify-content:space-between;gap:15px;background:#f8f5ef;padding:13px 15px;border-radius:13px;margin-bottom:18px}.panel-toolbar label{font-size:12px;font-weight:900;color:#536c79}.panel-toolbar input{width:min(440px,100%);border:1px solid #e3ddd3;border-radius:10px;background:#fff;padding:11px 13px;font-size:13px;outline:none}
+.collection-panel .library-card-image{height:205px}.collection-panel .library-card{min-height:0}
+.empty{grid-column:1/-1;text-align:center;padding:38px 20px;color:var(--muted);background:#f8f5ef;border-radius:14px}
+.dialog .preview-label{display:inline-flex;background:#edf3f3;color:#526d79;border-radius:30px;padding:7px 11px;font-size:10px;font-weight:900}
+.dialog .preview-disclaimer{background:#f8f5ef;border-radius:12px;padding:12px 14px;font-size:12px;color:#60717b}
+@media(max-width:1050px){.navwrap{flex-wrap:wrap;gap:12px}.navlinks{order:3;width:100%;justify-content:center}.nav-search{margin-left:auto}.collection-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){main{padding:0 15px 40px}.navwrap{padding:12px 15px}.logo{min-width:0}.logo-name{font-size:26px}.nav-search{width:100%;order:2}.navlinks{overflow:auto;justify-content:flex-start}.hero{grid-template-columns:1fr;padding:30px 24px;gap:20px}.hero-visual{height:200px}.hero-photo{height:195px}.intro-grid{grid-template-columns:1fr}.intro-card{min-height:205px;padding:23px}.section-heading{align-items:flex-start;flex-direction:column}.section-heading h2{font-size:27px}.collection-grid{grid-template-columns:1fr}.collection-info p{min-height:0}.panel-toolbar{align-items:stretch;flex-direction:column}.collection-panel{padding:17px}.cards{grid-template-columns:1fr}.dialog{padding:20px}}
+
 </style>
 </head>
 <body>
 <header class="topbar">
  <div class="navwrap">
-  <a class="logo" href="#" aria-label="MaxPSI inicio">
+  <a class="logo" href="#inicio" aria-label="MaxPSI inicio">
    <span class="logo-mark">M</span><span><span class="logo-name">Max<span>PSI</span></span><small>RECURSOS TERAPÉUTICOS</small></span>
   </a>
   <nav class="navlinks">
-   <a class="active" href="#">Inicio</a><a href="#biblioteca">Explorar</a><a href="#acerca">Acerca de</a>
-   <button id="favoritesNav" type="button">♡ Favoritos</button><a href="#ayuda">Ayuda</a>
+   <a class="active" href="#inicio">Inicio</a>
+   <a href="#cognitiva">Estimulación cognitiva</a>
+   <a href="#herramientas">Herramientas TCC</a>
+   <a href="#acerca">Acerca de</a>
   </nav>
-  <div class="nav-search"><input id="quickSearch" type="search" placeholder="Buscar actividades..."><span>⌕</span></div>
+  <div class="nav-search"><input id="quickSearch" type="search" placeholder="Buscar un recurso..."><span>⌕</span></div>
  </div>
 </header>
 
-<main>
+<main id="inicio">
  <section class="hero">
   <div class="hero-copy">
-   <span class="eyebrow">Recursos para el trabajo terapéutico</span>
-   <h1>Ideas que impulsan<br><span>el bienestar.</span></h1>
-   <p>Una biblioteca digital de actividades y herramientas para acompañar, estimular y trabajar distintas áreas en todas las etapas de la vida.</p>
-   <a class="primary-btn" href="#biblioteca">Explorar recursos <span>→</span></a>
-  </div>
-  <div class="hero-visual">
-   <img class="hero-photo" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=85" alt="Materiales de trabajo y planificación sobre una mesa">
-   <div class="hero-note">Recursos que inspiran. Actividades que acompañan.</div>
-  </div>
- </section>
-
- <section class="categories" aria-label="Categorías">
-  <div class="category c1" data-area="Memoria"><span class="cat-icon">01</span><strong>Memoria<br>y atención</strong><span class="arrow">↗</span></div>
-  <div class="category c2" data-area="Lenguaje"><span class="cat-icon">02</span><strong>Lenguaje<br>y comunicación</strong><span class="arrow">↗</span></div>
-  <div class="category c3" data-area="Orientación"><span class="cat-icon">03</span><strong>Orientación</strong><span class="arrow">↗</span></div>
-  <div class="category c4" data-area="Atención"><span class="cat-icon">04</span><strong>Atención</strong><span class="arrow">↗</span></div>
-  <div class="category c5" data-area="Funciones ejecutivas"><span class="cat-icon">05</span><strong>Funciones<br>ejecutivas</strong><span class="arrow">↗</span></div>
-  <div class="category c6" data-area=""><span class="cat-icon">06</span><strong>Actividades<br>grupales</strong><span class="arrow">↗</span></div>
- </section>
-
- <section class="feature-strip" aria-label="Actividades destacadas">
-   <article class="activity-card">
-    <img class="activity-image" src="assets/actividad-01.png" alt="Actividad 1: Recuerdos de una época">
-    <div class="activity-content"><span class="tag">Memoria autobiográfica</span><h3>Recuerdos de una época</h3><p>Evocación de recuerdos personales a partir de fotografías y objetos de distintas épocas.</p><div class="meta"><span>◷ 20–30 min</span><span>• Graduable</span></div></div>
-   </article>
-   <article class="activity-card">
-    <img class="activity-image" src="assets/actividad-05.png" alt="Actividad 5: Música que despierta recuerdos">
-    <div class="activity-content"><span class="tag">Memoria autobiográfica</span><h3>Música que despierta recuerdos</h3><p>Evocación de experiencias y recuerdos personales mediante estímulos musicales significativos.</p><div class="meta"><span>◷ 20–30 min</span><span>• Graduable</span></div></div>
-   </article>
-   <article class="activity-card">
-    <img class="activity-image" src="assets/actividad-10.png" alt="Actividad 10: ¿Qué tengo que hacer mañana?">
-    <div class="activity-content"><span class="tag">Memoria prospectiva</span><h3>¿Qué tengo que hacer mañana?</h3><p>Planificación y recuerdo de actividades y compromisos cotidianos.</p><div class="meta"><span>◷ 20–30 min</span><span>• Graduable</span></div></div>
-   </article>
-   <aside class="promo" id="acerca"><h3>Tu aliado en el trabajo terapéutico.</h3><p>Recursos prácticos, adaptables y organizados para facilitar la planificación de actividades.</p><a href="#biblioteca">Conocé la biblioteca →</a></aside>
-  </section>
-
- <section class="library" id="biblioteca">
-  <div class="library-top"><div><span class="eyebrow">Biblioteca digital</span><h2>Explorá las actividades</h2></div><span class="count" id="count"></span></div>
-  <div class="search-panel">
-   <div class="search-main"><input id="search" type="search" placeholder="Buscá por nombre, objetivo o palabra clave..."></div>
-   <div class="filters">
-    <div><label for="area">ÁREA DE TRABAJO</label><select id="area"><option value="">Todas las áreas</option><option>Memoria</option><option>Atención</option><option>Lenguaje</option><option>Funciones ejecutivas</option><option>Orientación</option></select></div>
-    <div><label for="difficulty">NIVEL DE DIFICULTAD</label><select id="difficulty"><option value="">Todos los niveles</option><option>Graduable</option></select></div>
-    <div><label for="duration">DURACIÓN</label><select id="duration"><option value="">Cualquier duración</option><option value="15">Hasta 15 minutos</option><option value="30">Hasta 30 minutos</option></select></div>
+   <span class="eyebrow">Biblioteca profesional de recursos</span>
+   <h1>Herramientas para<br><span>el trabajo terapéutico.</span></h1>
+   <p>Actividades y hojas de trabajo listas para utilizar en sesión o proponer como tarea entre encuentros. Recursos organizados para encontrar lo que necesitás, de manera simple y rápida.</p>
+   <div class="hero-actions">
+    <a class="primary-btn" href="#cognitiva">Explorar colecciones <span>→</span></a>
+    <a class="outline-btn" href="#herramientas">Ver herramientas TCC</a>
    </div>
   </div>
-  <div class="section-head"><div><h2 id="listTitle">Todos los recursos</h2><p>Seleccioná una actividad para consultar su ficha completa.</p></div><a class="text-link" href="#biblioteca" id="clearFilters">Limpiar filtros</a></div>
+  <div class="hero-visual">
+   <img class="hero-photo" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=85" alt="Materiales de trabajo y planificación terapéutica sobre una mesa">
+   <div class="hero-note">Recursos prácticos para acompañar cada proceso.</div>
+  </div>
+ </section>
+
+ <section class="intro-grid" aria-label="Tipos de recursos">
+  <a class="intro-card intro-cognitive" href="#cognitiva">
+   <span class="intro-kicker">01 · ACTIVIDADES</span><span class="intro-icon">◈</span>
+   <h2>Estimulación cognitiva</h2>
+   <p>Actividades organizadas por áreas cognitivas, con propuestas graduables y materiales para el trabajo profesional.</p>
+   <strong>Explorar colecciones <span>→</span></strong>
+  </a>
+  <a class="intro-card intro-tools" href="#herramientas">
+   <span class="intro-kicker">02 · HOJAS DE TRABAJO</span><span class="intro-icon">▤</span>
+   <h2>Herramientas terapéuticas</h2>
+   <p>Registros, ejercicios y hojas para trabajar en sesión o entregar al paciente como tarea.</p>
+   <strong>Explorar herramientas <span>→</span></strong>
+  </a>
+ </section>
+
+ <section class="collection-section" id="cognitiva">
+  <div class="section-heading">
+   <div><span class="eyebrow">Colecciones de actividades</span><h2>Estimulación cognitiva</h2><p>Material práctico para trabajar distintas funciones cognitivas.</p></div>
+   <span class="section-count">10 actividades publicadas</span>
+  </div>
+  <div class="collection-grid" id="cognitiveCollections">
+   <article class="collection-card collection-live">
+    <div class="collection-art art-memory"><span>01</span><b>MEMORIA</b><i>◉</i></div>
+    <div class="collection-info"><span class="status status-live">Colección publicada</span><h3>Estimulación de la memoria</h3><p>10 actividades para trabajar evocación, retención, asociación, memoria secuencial y memoria prospectiva.</p><div class="collection-meta"><span>10 actividades</span><span>Material imprimible</span></div><button class="collection-button" onclick="openCollection('memory')">Ver colección <span>→</span></button></div>
+   </article>
+   <article class="collection-card">
+    <div class="collection-art art-attention"><span>02</span><b>ATENCIÓN</b><i>◎</i></div>
+    <div class="collection-info"><span class="status status-soon">En preparación</span><h3>Estimulación de la atención</h3><p>Propuestas para trabajar atención sostenida, selectiva, alternante y dividida.</p><div class="collection-meta"><span>Objetivo: 10 actividades</span></div><button class="collection-button muted-button" onclick="showComingSoon('Estimulación de la atención')">Próximamente</button></div>
+   </article>
+   <article class="collection-card">
+    <div class="collection-art art-language"><span>03</span><b>LENGUAJE</b><i>▤</i></div>
+    <div class="collection-info"><span class="status status-soon">En preparación</span><h3>Estimulación del lenguaje</h3><p>Actividades de fluidez verbal, comprensión, denominación y expresión.</p><div class="collection-meta"><span>Objetivo: 10 actividades</span></div><button class="collection-button muted-button" onclick="showComingSoon('Estimulación del lenguaje')">Próximamente</button></div>
+   </article>
+   <article class="collection-card">
+    <div class="collection-art art-orientation"><span>04</span><b>ORIENTACIÓN</b><i>⌖</i></div>
+    <div class="collection-info"><span class="status status-soon">En preparación</span><h3>Orientación</h3><p>Recursos para trabajar orientación temporal, espacial y personal.</p><div class="collection-meta"><span>Objetivo: 10 actividades</span></div><button class="collection-button muted-button" onclick="showComingSoon('Orientación')">Próximamente</button></div>
+   </article>
+   <article class="collection-card">
+    <div class="collection-art art-executive"><span>05</span><b>FUNCIONES EJECUTIVAS</b><i>⌘</i></div>
+    <div class="collection-info"><span class="status status-soon">En preparación</span><h3>Funciones ejecutivas</h3><p>Propuestas para planificación, flexibilidad cognitiva, inhibición y resolución de problemas.</p><div class="collection-meta"><span>Objetivo: 10 actividades</span></div><button class="collection-button muted-button" onclick="showComingSoon('Funciones ejecutivas')">Próximamente</button></div>
+   </article>
+  </div>
+ </section>
+
+ <section class="collection-section therapy-section" id="herramientas">
+  <div class="section-heading">
+   <div><span class="eyebrow">Colecciones de hojas de trabajo</span><h2>Herramientas terapéuticas</h2><p>Materiales para utilizar durante la sesión o proponer como tarea entre encuentros.</p></div>
+   <span class="section-count">En desarrollo</span>
+  </div>
+  <div class="therapy-note"><span class="therapy-note-icon">✎</span><div><strong>Un recurso para cada momento del proceso</strong><p>El profesional selecciona la hoja de trabajo y explica la técnica. El paciente puede completarla en sesión o llevarla a casa para continuar trabajando.</p></div></div>
+  <div class="collection-grid therapy-grid" id="therapyCollections">
+   <article class="collection-card"><div class="collection-art therapy-art art-thought"><span>01</span><b>PENSAMIENTOS</b><i>☷</i></div><div class="collection-info"><span class="status status-soon">En preparación</span><h3>Registros de pensamientos</h3><p>Registros de pensamientos automáticos, evidencias y alternativas.</p><div class="collection-meta"><span>Hojas de trabajo</span></div><button class="collection-button muted-button" onclick="showComingSoon('Registros de pensamientos')">Próximamente</button></div></article>
+   <article class="collection-card"><div class="collection-art therapy-art art-emotion"><span>02</span><b>EMOCIONES</b><i>◒</i></div><div class="collection-info"><span class="status status-soon">En preparación</span><h3>Regulación emocional</h3><p>Termómetros emocionales, registros y ejercicios de identificación emocional.</p><div class="collection-meta"><span>Hojas de trabajo</span></div><button class="collection-button muted-button" onclick="showComingSoon('Regulación emocional')">Próximamente</button></div></article>
+   <article class="collection-card"><div class="collection-art therapy-art art-anxiety"><span>03</span><b>ANSIEDAD</b><i>〰</i></div><div class="collection-info"><span class="status status-soon">En preparación</span><h3>Ansiedad y preocupaciones</h3><p>Registros, análisis de preocupaciones y herramientas para afrontar situaciones temidas.</p><div class="collection-meta"><span>Hojas de trabajo</span></div><button class="collection-button muted-button" onclick="showComingSoon('Ansiedad y preocupaciones')">Próximamente</button></div></article>
+   <article class="collection-card"><div class="collection-art therapy-art art-activation"><span>04</span><b>ACTIVACIÓN</b><i>↗</i></div><div class="collection-info"><span class="status status-soon">En preparación</span><h3>Activación conductual</h3><p>Agendas de actividades, planificación y seguimiento de acciones significativas.</p><div class="collection-meta"><span>Hojas de trabajo</span></div><button class="collection-button muted-button" onclick="showComingSoon('Activación conductual')">Próximamente</button></div></article>
+   <article class="collection-card"><div class="collection-art therapy-art art-exposure"><span>05</span><b>EXPOSICIÓN</b><i>↗</i></div><div class="collection-info"><span class="status status-soon">En preparación</span><h3>Exposición</h3><p>Jerarquías, escaleras de exposición y registros para el trabajo gradual.</p><div class="collection-meta"><span>Hojas de trabajo</span></div><button class="collection-button muted-button" onclick="showComingSoon('Exposición')">Próximamente</button></div></article>
+   <article class="collection-card"><div class="collection-art therapy-art art-beliefs"><span>06</span><b>CREENCIAS</b><i>⌁</i></div><div class="collection-info"><span class="status status-soon">En preparación</span><h3>Creencias y reestructuración cognitiva</h3><p>Hojas para explorar creencias, interpretaciones y perspectivas alternativas.</p><div class="collection-meta"><span>Hojas de trabajo</span></div><button class="collection-button muted-button" onclick="showComingSoon('Creencias y reestructuración cognitiva')">Próximamente</button></div></article>
+   <article class="collection-card"><div class="collection-art therapy-art art-selfesteem"><span>07</span><b>AUTOESTIMA</b><i>✧</i></div><div class="collection-info"><span class="status status-soon">En preparación</span><h3>Autoestima y autoconocimiento</h3><p>Registros y ejercicios para trabajar autoconcepto, fortalezas y valoración personal.</p><div class="collection-meta"><span>Hojas de trabajo</span></div><button class="collection-button muted-button" onclick="showComingSoon('Autoestima y autoconocimiento')">Próximamente</button></div></article>
+   <article class="collection-card"><div class="collection-art therapy-art art-coping"><span>08</span><b>AFRONTAMIENTO</b><i>◇</i></div><div class="collection-info"><span class="status status-soon">En preparación</span><h3>Habilidades de afrontamiento</h3><p>Recursos para resolución de problemas, toma de decisiones y manejo de situaciones difíciles.</p><div class="collection-meta"><span>Hojas de trabajo</span></div><button class="collection-button muted-button" onclick="showComingSoon('Habilidades de afrontamiento')">Próximamente</button></div></article>
+  </div>
+ </section>
+
+ <section class="collection-panel" id="memoryPanel" hidden>
+  <div class="panel-heading"><button class="back-button" onclick="closeCollection()">← Volver a las colecciones</button><span class="eyebrow">Colección · Estimulación cognitiva</span><h2>Estimulación de la memoria</h2><p>Explorá las 10 actividades que integran esta colección.</p></div>
+  <div class="panel-toolbar"><label for="memorySearch">Buscar dentro de la colección</label><input id="memorySearch" type="search" placeholder="Nombre, objetivo o proceso cognitivo..."></div>
   <section class="cards" id="cards"></section>
  </section>
 </main>
 
-<footer id="ayuda"><strong>MaxPSI · Recursos terapéuticos</strong>Material orientativo para profesionales. Las actividades requieren adaptación y criterio profesional.<br>No constituyen pruebas diagnósticas ni reemplazan una evaluación.</footer>
-
+<footer id="acerca"><strong>MaxPSI · Recursos terapéuticos</strong>Materiales profesionales para el trabajo terapéutico.<br>Las propuestas requieren criterio profesional y adaptación a las características de cada persona.</footer>
 <div class="overlay" id="overlay"><div class="dialog" id="dialog"></div></div>
 
 <script>
@@ -221,64 +302,56 @@ const activities = [
  {id:9,name:"Recordar por categorías",area:"Memoria",difficulty:"Graduable",duration:20,objective:"Estimular la memoria semántica y la organización de la información mediante la clasificación en categorías.",materials:"Tarjetas ilustradas de frutas, animales, prendas de vestir, objetos del hogar y otras categorías.",instruction:"Observá los objetos. Luego, recordá cuáles viste y agrupá o nombrá los elementos que pertenecen a cada categoría.",steps:["Presentar imágenes pertenecientes a distintas categorías semánticas.","Invitar a observar y nombrar los elementos.","Retirar algunas imágenes o cubrir la lámina y solicitar que recuerde los elementos.","Pedir que los agrupe o evoque por categoría.","Incorporar claves de categoría cuando sea necesario."],adaptation:"Funcionamiento conservado: categorías amplias y subcategorías, con mayor cantidad de elementos. Deterioro leve: pocas categorías familiares y claves semánticas. Deterioro moderado: dos categorías concretas, pocas imágenes grandes y clasificación con apoyo visual.",processes:"Memoria semántica, organización y recuperación categorial, fluidez verbal, reconocimiento y atención."},
  {id:10,name:"¿Qué tengo que hacer mañana?",area:"Memoria",difficulty:"Graduable",duration:25,objective:"Estimular la memoria prospectiva y la planificación de actividades futuras y cotidianas.",materials:"Agenda o planificador diario, calendario, tarjetas de actividades y notas recordatorias.",instruction:"Leé o escuchá el plan para mañana. Después, intentá recordar qué actividades tenés que realizar y en qué momento.",steps:["Presentar un plan diario sencillo con actividades y compromisos cotidianos.","Revisar con el participante qué tareas aparecen y cuándo deben realizarse.","Retirar u ocultar el planificador y solicitar que recuerde las actividades futuras.","Utilizar preguntas orientadoras o señales recordatorias si es necesario.","Conversar sobre qué apoyo podría ayudar a recordar cada compromiso."],adaptation:"Funcionamiento conservado: incluir varios compromisos, horarios y posibles imprevistos. Deterioro leve: plan de pocas actividades con agenda y claves visuales. Deterioro moderado: una o dos actividades significativas, pictogramas o fotografías y recordatorios externos visibles.",processes:"Memoria prospectiva, planificación, organización temporal, memoria de trabajo, recuperación y uso de claves externas."}
 ];
-const $=id=>document.getElementById(id);
-let favorites=JSON.parse(localStorage.getItem("maxpsic_favorites")||"[]");
-let showingFavorites=false;
 
-function render(){
- const query=$("search").value.toLowerCase().trim();
- const area=$("area").value, difficulty=$("difficulty").value, duration=$("duration").value;
- const filtered=activities.filter(a=>{
-  const text=(a.name+" "+a.objective+" "+a.area+" "+a.materials).toLowerCase();
-  return (!query||text.includes(query))&&(!area||a.area===area)&&(!difficulty||a.difficulty===difficulty)&&(!duration||a.duration<=Number(duration))&&(!showingFavorites||favorites.includes(a.id));
- });
- $("listTitle").textContent=showingFavorites?"Mis actividades favoritas":"Todos los recursos";
- $("count").textContent=filtered.length+" actividades";
+const $=id=>document.getElementById(id);
+let memoryQuery="";
+function renderActivities(){
+ const query=memoryQuery.toLowerCase().trim();
+ const filtered=activities.filter(a=>!query||(a.name+" "+a.objective+" "+a.processes+" "+a.materials).toLowerCase().includes(query));
  $("cards").innerHTML=filtered.length?filtered.map(a=>`
   <article class="library-card">
-   <img class="library-card-image" src="assets/actividad-${String(a.id).padStart(2,"0")}.png" alt="Material visual de ${a.name}" loading="lazy">
-   <div class="library-card-body">
-    <span class="tag">${a.area}</span><h3>${a.name}</h3><p>${a.objective}</p>
+   <img class="library-card-image" src="assets/actividad-${String(a.id).padStart(2,"0")}.png" alt="Vista previa de ${a.name}" loading="lazy">
+   <div class="library-card-body"><span class="tag">${a.area}</span><h3>${a.name}</h3><p>${a.objective}</p>
     <div class="meta"><span>◷ ${a.duration} min aprox.</span><span>• ${a.difficulty}</span></div>
-    <div class="actions"><button class="primary" onclick="openActivity(${a.id})">Ver ficha completa →</button><button class="favorite" aria-label="Agregar a favoritos" onclick="toggleFavorite(${a.id})">${favorites.includes(a.id)?"♥":"♡"}</button></div>
+    <div class="actions"><button class="primary" onclick="openActivity(${a.id})">Vista previa →</button></div>
    </div>
-  </article>`).join(""):'<div class="empty">No encontramos actividades con esos criterios. Probá modificar la búsqueda o los filtros.</div>';
- $("favoritesNav").textContent=showingFavorites?"♡ Ver todas":"♡ Favoritos";
+  </article>`).join(""):'<div class="empty">No encontramos actividades con esa búsqueda. Probá con otra palabra.</div>';
 }
-function toggleFavorite(id){favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];localStorage.setItem("maxpsic_favorites",JSON.stringify(favorites));render();}
-function openActivity(id){
- const a=activities.find(x=>x.id===id);
- $("dialog").innerHTML=`<img src="assets/actividad-${String(a.id).padStart(2,"0")}.png" alt="Material de ${a.name}" style="width:100%;max-height:320px;object-fit:contain;object-position:top;background:#f7f1e8;border-radius:14px">
-  <span class="tag">${a.area} · ${a.difficulty} · ${a.duration} minutos aprox.</span><h2>${a.name}</h2>
-  <h4>Área y procesos involucrados</h4><p>${a.processes}</p><h4>Objetivo</h4><p>${a.objective}</p><h4>Materiales</h4><p>${a.materials}</p><h4>Consigna para el participante</h4><p>${a.instruction}</p>
-  <h4>Desarrollo</h4><ol>${a.steps.map(s=>`<li>${s}</li>`).join("")}</ol><h4>Adaptaciones orientativas</h4><p>${a.adaptation}</p>
-  <p style="font-size:12px;color:#687985">La dificultad es graduable y debe ajustarse considerando escolaridad, familiaridad con los estímulos, visión, audición, fatiga e intereses. La actividad no constituye una prueba diagnóstica.</p>
-  <div class="dialog-buttons"><button class="primary" onclick="participantMode(${a.id})">Modo participante</button><a class="secondary material-download" href="assets/actividad-${String(a.id).padStart(2,"0")}.png" download="MaxPSI-actividad-${String(a.id).padStart(2,"0")}.png">Descargar imagen PNG</a><button class="secondary" onclick="printMaterial(${a.id})">Imprimir material A4</button><button class="favorite" onclick="closeDialog()">Cerrar</button></div>`;
+function openCollection(key){
+ if(key!=="memory")return;
+ $("memoryPanel").hidden=false;
+ $("memorySearch").value="";memoryQuery="";renderActivities();
+ $("memoryPanel").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function closeCollection(){
+ $("memoryPanel").hidden=true;
+ $("cognitiva").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function showComingSoon(name){
+ $("dialog").innerHTML=`<span class="preview-label">Colección en preparación</span><h2>${name}</h2><p>Estamos desarrollando esta colección para incorporarla a la biblioteca MaxPSI.</p><p class="preview-disclaimer">La colección se publicará cuando sus materiales estén diseñados, revisados y listos para su uso profesional.</p><div class="dialog-buttons"><button class="primary" onclick="closeDialog()">Entendido</button></div>`;
  $("overlay").style.display="flex";
 }
-function printMaterial(id){
- // Página independiente: imprime solamente la lámina, no el sitio ni la ventana modal.
- const page = `imprimir.html?id=${encodeURIComponent(id)}`;
- const win = window.open(page, "_blank");
- if(!win) window.location.href = page;
-}
-function participantMode(id){
+function openActivity(id){
  const a=activities.find(x=>x.id===id);
- $("dialog").innerHTML=`<div class="participant"><span class="tag">Actividad</span><h2>${a.name}</h2><p>${a.instruction}</p><div class="instruction">Tomate tu tiempo. Podemos hacerlo juntos.</div></div>
- <div class="dialog-buttons"><button class="primary" onclick="openActivity(${a.id})">Volver a la ficha</button><button class="secondary" onclick="closeDialog()">Finalizar</button></div>`;
+ $("dialog").innerHTML=`<img src="assets/actividad-${String(a.id).padStart(2,"0")}.png" alt="Vista previa de ${a.name}" style="width:100%;max-height:340px;object-fit:contain;object-position:top;background:#f7f1e8;border-radius:14px">
+  <span class="preview-label">Vista previa · Colección de memoria</span><h2>${a.name}</h2>
+  <h4>¿Qué trabaja esta actividad?</h4><p>${a.objective}</p><h4>Procesos involucrados</h4><p>${a.processes}</p><h4>Materiales incluidos</h4><p>${a.materials}</p>
+  <p class="preview-disclaimer">Esta es una vista de presentación del recurso. La colección comercial reúne las fichas y materiales imprimibles completos para el trabajo profesional.</p>
+  <div class="dialog-buttons"><button class="primary" onclick="closeDialog()">Volver a la colección</button></div>`;
+ $("overlay").style.display="flex";
 }
 function closeDialog(){$("overlay").style.display="none";}
-$("search").addEventListener("input",render);
-$("area").addEventListener("change",render);
-$("difficulty").addEventListener("change",render);
-$("duration").addEventListener("change",render);
-$("quickSearch").addEventListener("input",e=>{$("search").value=e.target.value;render();document.getElementById("biblioteca").scrollIntoView({behavior:"smooth",block:"start"});});
-$("favoritesNav").addEventListener("click",()=>{showingFavorites=!showingFavorites;render();$("biblioteca").scrollIntoView({behavior:"smooth"});});
-$("clearFilters").addEventListener("click",()=>{$("search").value="";$("quickSearch").value="";$("area").value="";$("difficulty").value="";$("duration").value="";showingFavorites=false;render();});
-document.querySelectorAll(".category").forEach(c=>c.addEventListener("click",()=>{$("area").value=c.dataset.area;$("search").value="";showingFavorites=false;render();$("biblioteca").scrollIntoView({behavior:"smooth"});}));
+$("memorySearch").addEventListener("input",e=>{memoryQuery=e.target.value;renderActivities();});
+$("quickSearch").addEventListener("input",e=>{
+ const q=e.target.value.trim();
+ if(!q)return;
+ const memoryMatch=activities.some(a=>(a.name+" "+a.objective+" "+a.processes).toLowerCase().includes(q.toLowerCase()));
+ const collectionMatch=["memoria","atención","atencion","lenguaje","orientación","orientacion","funciones ejecutivas","pensamientos","regulación emocional","regulacion emocional","ansiedad","activación conductual","activacion conductual","exposición","exposicion","autoestima"].some(x=>x.includes(q.toLowerCase())||q.toLowerCase().includes(x));
+ if(memoryMatch||q.toLowerCase().includes("memoria")){openCollection("memory");$("memorySearch").value=q;memoryQuery=q;renderActivities();}
+ else if(collectionMatch){const target=document.getElementById(q.toLowerCase().includes("pens")||q.toLowerCase().includes("ans")||q.toLowerCase().includes("emoc")||q.toLowerCase().includes("activ")||q.toLowerCase().includes("expos")||q.toLowerCase().includes("autoestima")?"herramientas":"cognitiva");target.scrollIntoView({behavior:"smooth",block:"start"});}
+});
 $("overlay").addEventListener("click",e=>{if(e.target===$("overlay"))closeDialog();});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDialog();});
-render();
 </script>
 </body>
 </html>
